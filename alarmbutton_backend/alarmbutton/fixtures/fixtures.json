@@ -1,0 +1,23 @@
+[
+  {
+    "model": "alarmbutton.statuschoices",
+    "pk": 1,
+    "fields": {
+      "status": "активна"
+    }
+  },
+  {
+    "model": "alarmbutton.statuschoices",
+    "pk": 2,
+    "fields": {
+      "status": "забрана"
+    }
+  },
+  {
+    "model": "alarmbutton.statuschoices",
+    "pk": 3,
+    "fields": {
+      "status": "вирішена"
+    }
+  }
+]

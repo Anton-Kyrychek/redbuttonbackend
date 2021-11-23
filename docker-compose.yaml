@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  red_button:
+    image: registry.gitlab.com/worddict/alarmbutton
+    environment:
+      - DB_PASS=${DB_PASS}
+      - SECRET_KEY=${SECRET_KEY}
+    volumes:
+      - /REDBUTTON/volumes/certificates:/etc/certificates
+    container_name: red_button
+    ports:
+        - '80:8080'
+    depends_on:
+        - "db"
+    restart: always
+
+  db:
+    image: postgres
+    volumes:
+      - /REDBUTTON/volumes/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASS}
+    ports:
+        - '5432:5432'
+    restart: always
